@@ -1,7 +1,7 @@
 package david;
 
 import java.util.Scanner;
-
+test
 public class Main {
     static final int ROWS = 9;
     static final int COLS = 9;
