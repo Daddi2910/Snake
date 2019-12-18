@@ -3,8 +3,8 @@ package david;
 import java.util.Scanner;
 
 public class Main {
-    static final int ROWS = 10;
-    static final int COLS = 10;
+    static final int ROWS = 9;
+    static final int COLS = 9;
 
     static void println(String text) {
         System.out.println(text);
@@ -15,6 +15,14 @@ public class Main {
     }
 
     static void printPlayground (char [][] playground) {
+
+        int oben =0;
+        for (oben=0;oben<COLS; oben++)
+        {
+            print("---");
+        }
+        println("--");
+
         for(int y=0; y<ROWS;y++){
             print("| ");
             for(int x=0; x<COLS;x++){
@@ -36,9 +44,11 @@ public class Main {
 	char [][] playground = new char[ROWS][COLS];
 	for(int y=0; y<ROWS;y++){
 	    for(int x=0; x<COLS;x++){
-	        playground [y][x] = 'x';
+	        playground [y][x] = ' ';
         }
     }
+	char snake = 'X';
+	playground [4][4] = snake;
 
 	printPlayground(playground);
     }
