@@ -1,7 +1,7 @@
 package david;
 
 import java.util.Scanner;
-test
+
 public class Main {
     static final int ROWS = 9;
     static final int COLS = 9;
@@ -12,6 +12,15 @@ public class Main {
 
     static void print(String text){
         System.out.printf(text);
+    }
+
+    static char scan_char() {
+        Scanner input = new Scanner((System.in));
+        String s = input.nextLine();
+        if (s.length() == 0)
+            return '\n';
+        char in = s.charAt(0);
+        return in;
     }
 
     static void printPlayground (char [][] playground) {
@@ -49,8 +58,10 @@ public class Main {
     }
 	char snake = 'X';
 	playground [4][4] = snake;
-
 	printPlayground(playground);
+
+	char test = scan_char();
+	println("" +test);
     }
     
 }
