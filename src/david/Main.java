@@ -10,7 +10,7 @@ public class Main {
         System.out.println(text);
     }
 
-    static void print(String text){
+    static void print(String text) {
         System.out.printf(text);
     }
 
@@ -23,45 +23,37 @@ public class Main {
         return in;
     }
 
-    static void printPlayground (char [][] playground) {
 
-        int oben =0;
-        for (oben=0;oben<COLS; oben++)
-        {
-            print("---");
-        }
-        println("--");
+    static void printPlayground(int snake_x, int snake_y) {
 
-        for(int y=0; y<ROWS;y++){
-            print("| ");
-            for(int x=0; x<COLS;x++){
+        for (int y = 0; y < ROWS; y++) {
+            for (int x = 0; x < COLS; x++) {
 
-                print ("" + playground [y][x]);
-                print("  ");
+                if (x == snake_x && y == snake_y) {
+                    print("x");
+                } else {
+                    print("Ö");
+                }
+
+                print("│┌┐└┘─");
             }
-            println("|");
         }
-    int unten =0;
-        for (unten=0;unten<COLS; unten++){
-            print("___");
-        }
-        print("__");
     }
 
     public static void main(String[] args) {
 
-	char [][] playground = new char[ROWS][COLS];
-	for(int y=0; y<ROWS;y++){
-	    for(int x=0; x<COLS;x++){
-	        playground [y][x] = ' ';
-        }
-    }
-	char snake = 'X';
-	playground [4][4] = snake;
-	printPlayground(playground);
 
-	char test = scan_char();
-	println("" +test);
+        char start = 'X';
+        int x = 4;
+        int y = 4;
+        printPlayground(x, y);
+
+        char test = scan_char();
+        if (test == 'w') {
+            y--;
+        }
+        printPlayground(x, y);
+
     }
-    
+
 }
