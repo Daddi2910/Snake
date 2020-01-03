@@ -24,7 +24,7 @@ public class Main {
     }
 
 
-    static void printPlayground(int snake_x, int snake_y) {
+    static void print_playground(int[] snake_x, int[] snake_y) {
         print("┌");
         for (int oben = 0; oben < COLS; oben++) {
             print("───");
@@ -36,9 +36,9 @@ public class Main {
             for (int x = 0; x < COLS; x++) {
 
                 if (x == snake_x && y == snake_y) {
-                    print(" x ");
+                    print(" S ");
                 } else {
-                    print(" Ö ");
+                    print("   ");
                 }
             }
             println("│");
@@ -54,24 +54,24 @@ public class Main {
 
 
         char start = 'X';
-        int x = 4;
-        int y = 4;
-        printPlayground(x, y);
+        int[] snake_x = {3, 4, 4};
+        int[] snake_y = {4, 4, 5};
+        print_playground(snake_x, snake_y);
 
-        char test = scan_char();
-        if (test == 'w') {
-            y--;
-        }
-        if (test == 's') {
-            y++;
-        }
-        if (test == 'a') {
-            x--;
-        }
-        if (test == 'd') {
-            x++;
-        }
-        printPlayground(x, y);
+//        char test = scan_char();
+//        if (test == 'w') {
+//            y--;
+//        }
+//        if (test == 's') {
+//            y++;
+//        }
+//        if (test == 'a') {
+//            x--;
+//        }
+//        if (test == 'd') {
+//            x++;
+//        }
+//        print_playground(x, y);
 
     }
 
