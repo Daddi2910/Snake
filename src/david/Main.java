@@ -25,19 +25,29 @@ public class Main {
 
 
     static void printPlayground(int snake_x, int snake_y) {
+        print("┌");
+        for (int oben = 0; oben < COLS; oben++) {
+            print("───");
+        }
+        print("┐ \n");
 
         for (int y = 0; y < ROWS; y++) {
+            print("│");
             for (int x = 0; x < COLS; x++) {
 
                 if (x == snake_x && y == snake_y) {
-                    print("x");
+                    print(" x ");
                 } else {
-                    print("Ö");
+                    print(" Ö ");
                 }
-
-                print("│┌┐└┘─");
             }
+            println("│");
         }
+        print("└");
+        for (int unten = 0; unten < COLS; unten++) {
+            print("───");
+        }
+        print ("┘");
     }
 
     public static void main(String[] args) {
@@ -51,6 +61,15 @@ public class Main {
         char test = scan_char();
         if (test == 'w') {
             y--;
+        }
+        if (test == 's') {
+            y++;
+        }
+        if (test == 'a') {
+            x--;
+        }
+        if (test == 'd') {
+            x++;
         }
         printPlayground(x, y);
 
