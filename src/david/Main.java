@@ -35,27 +35,38 @@ public class Main {
             print("│");
             for (int x = 0; x < COLS; x++) {
 
-                if (x == snake_x && y == snake_y) {
-                    print(" S ");
-                } else {
-                    print("   ");
+                char what_to_print = ' ';
+                for (int z = 0; z < snake_x.length; z++) {
+
+                    if (x == snake_x[z] && y == snake_y[z]) {
+                        if (z==0)
+                            what_to_print = 'Ö';
+                        else
+                            what_to_print = '~';
+                        break;
+                    }
                 }
+
+                print(" " + what_to_print + " ");
+
             }
             println("│");
         }
+
         print("└");
         for (int unten = 0; unten < COLS; unten++) {
             print("───");
         }
-        print ("┘");
+        print("┘\n");
     }
+
 
     public static void main(String[] args) {
 
 
         char start = 'X';
-        int[] snake_x = {3, 4, 4};
-        int[] snake_y = {4, 4, 5};
+        int[] snake_x = {3, 4, 4, 5, 6, 7, 7};
+        int[] snake_y = {4, 4, 5, 5, 5, 5, 4};
         print_playground(snake_x, snake_y);
 
 //        char test = scan_char();
