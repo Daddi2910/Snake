@@ -39,7 +39,7 @@ public class Main {
                 for (int z = 0; z < snake_x.length; z++) {
 
                     if (x == snake_x[z] && y == snake_y[z]) {
-                        if (z==0)
+                        if (z == 0)
                             what_to_print = 'Ö';
                         else
                             what_to_print = '~';
@@ -60,6 +60,40 @@ public class Main {
         print("┘\n");
     }
 
+    static void move_playground(char move, int[] snake_x, int[] snake_y) {
+
+        if (move == 'w') {
+
+            for (int z = snake_y.length-1; z >0; z--) {
+                snake_y[z] = snake_y[z - 1];
+                snake_x[z] = snake_x[z - 1];
+            }
+            snake_y[0]--;
+        }
+        if (move == 's') {
+            for (int z = snake_x.length-1; z > 0; z--) {
+                snake_y[z] = snake_y[z - 1];
+                snake_x[z] = snake_x[z - 1];
+            }
+            snake_y[0]++;
+        }
+        if (move == 'a') {
+            for (int z = snake_x.length-1; z > 0; z--) {
+                snake_y[z] = snake_y[z - 1];
+                snake_x[z] = snake_x[z - 1];
+            }
+            snake_x[0]--;
+        }
+        if (move == 'd') {
+            for (int z = snake_x.length-1; z > 0; z--) {
+                snake_y[z] = snake_y[z - 1];
+                snake_x[z] = snake_x[z - 1];
+            }
+            snake_x[0]++;
+        }
+
+    }
+
 
     public static void main(String[] args) {
 
@@ -68,22 +102,13 @@ public class Main {
         int[] snake_x = {3, 4, 4, 5, 6, 7, 7};
         int[] snake_y = {4, 4, 5, 5, 5, 5, 4};
         print_playground(snake_x, snake_y);
+        boolean is_win = true;
+        while (is_win) {
+            char move = scan_char();
+            move_playground(move, snake_x, snake_y);
+            print_playground(snake_x, snake_y);
 
-//        char test = scan_char();
-//        if (test == 'w') {
-//            y--;
-//        }
-//        if (test == 's') {
-//            y++;
-//        }
-//        if (test == 'a') {
-//            x--;
-//        }
-//        if (test == 'd') {
-//            x++;
-//        }
-//        print_playground(x, y);
+        }
 
     }
-
 }
