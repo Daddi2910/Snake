@@ -60,38 +60,36 @@ public class Main {
         print("┘\n");
     }
 
-    static void move_playground(char move, int[] snake_x, int[] snake_y) {
+    static void move_snake(char move, int[] snake_x, int[] snake_y) {
+        if (move != 'w' && move != 'a' && move != 's' && move != 'd')
+            return;
 
+        for (int z = snake_y.length - 1; z > 0; z--) {
+            snake_y[z] = snake_y[z - 1];
+            snake_x[z] = snake_x[z - 1];
+        }
         if (move == 'w') {
-
-            for (int z = snake_y.length-1; z >0; z--) {
-                snake_y[z] = snake_y[z - 1];
-                snake_x[z] = snake_x[z - 1];
-            }
             snake_y[0]--;
         }
         if (move == 's') {
-            for (int z = snake_x.length-1; z > 0; z--) {
-                snake_y[z] = snake_y[z - 1];
-                snake_x[z] = snake_x[z - 1];
-            }
             snake_y[0]++;
         }
         if (move == 'a') {
-            for (int z = snake_x.length-1; z > 0; z--) {
-                snake_y[z] = snake_y[z - 1];
-                snake_x[z] = snake_x[z - 1];
-            }
             snake_x[0]--;
         }
         if (move == 'd') {
-            for (int z = snake_x.length-1; z > 0; z--) {
-                snake_y[z] = snake_y[z - 1];
-                snake_x[z] = snake_x[z - 1];
-            }
             snake_x[0]++;
         }
 
+    }
+
+    static boolean game_over(int[] snake_x, int[] snake_y) {
+        if (snake_x[0] >= COLS || snake_x[0] < 0 || snake_y[0] < 0 || snake_y[0] >= ROWS)
+            return true;
+
+        // Schlangentest
+
+        return false;
     }
 
 
@@ -102,13 +100,13 @@ public class Main {
         int[] snake_x = {3, 4, 4, 5, 6, 7, 7};
         int[] snake_y = {4, 4, 5, 5, 5, 5, 4};
         print_playground(snake_x, snake_y);
-        boolean is_win = true;
-        while (is_win) {
+        boolean running = true;
+        while (!game_over(snake_x, snake_y)) {
             char move = scan_char();
-            move_playground(move, snake_x, snake_y);
+            move_snake(move, snake_x, snake_y);
             print_playground(snake_x, snake_y);
 
         }
-//test
+        println("Du hast verloren");
     }
 }
