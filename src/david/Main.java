@@ -24,7 +24,8 @@ public class Main {
     }
 
 
-    static void print_playground(int[] snake_x, int[] snake_y) {
+    // todo: print apple
+    static void print_playground(int[] snake_x, int[] snake_y, int apple_x, int apple_y) {
         print("┌");
         for (int oben = 0; oben < COLS; oben++) {
             print("───");
@@ -88,10 +89,17 @@ public class Main {
             return true;
 
         // Schlangentest
-
+        for (int z = 1; z < snake_x.length; z++) {
+            if (snake_x[0] == snake_x[z] && snake_y[0] == snake_y[z]) {
+                return true;
+            }
+        }
         return false;
     }
 
+    // todo: function apple_eaten ?
+    // todo: function snake bigger machen :D
+    // todo: function generate_apple (not in the snake!)
 
     public static void main(String[] args) {
 
@@ -102,6 +110,8 @@ public class Main {
         print_playground(snake_x, snake_y);
         boolean running = true;
         while (!game_over(snake_x, snake_y)) {
+            int random_a = (int) (Math.random() * 10);
+            int random_b = (int) (Math.random() * 10);
             char move = scan_char();
             move_snake(move, snake_x, snake_y);
             print_playground(snake_x, snake_y);
