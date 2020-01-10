@@ -107,14 +107,14 @@ public class Main {
         char start = 'X';
         int[] snake_x = {3, 4, 4, 5, 6, 7, 7};
         int[] snake_y = {4, 4, 5, 5, 5, 5, 4};
-        print_playground(snake_x, snake_y);
+        print_playground(snake_x, snake_y, 0, 0);
         boolean running = true;
         while (!game_over(snake_x, snake_y)) {
             int random_a = (int) (Math.random() * 10);
             int random_b = (int) (Math.random() * 10);
             char move = scan_char();
             move_snake(move, snake_x, snake_y);
-            print_playground(snake_x, snake_y);
+            print_playground(snake_x, snake_y, 0, 0);
 
         }
         println("Du hast verloren");
